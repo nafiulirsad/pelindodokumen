@@ -67,6 +67,9 @@
 		.flatpickr-wrapper{
 			width: 100%;
 		}
+		.modal{
+			overflow: hidden !important;
+		}
 	</style>
 </head>
 
