@@ -20,6 +20,16 @@ switch($alert){
         </script>";
         session()->setFlashdata('alert', '');
         break;
+    case 'berhasil_edit':
+        echo "<script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Yeay!',
+                text: 'Berhasil mengubah data penerimaan dokumen.',
+            })
+        </script>";
+        session()->setFlashdata('alert', '');
+        break;
     case 'berhasil_hapus':
         echo "<script>
             Swal.fire({

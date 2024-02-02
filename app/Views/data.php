@@ -71,6 +71,16 @@
 			height: 80vh !important;
 			overflow-y: hidden !important;
 		}
+		.form-check-input{
+			width: 30px;
+			height: 30px;
+			margin-right: 10px;
+			border-color: blue;
+		}
+		.form-check-label{
+			margin-top: 5px;
+  			font-weight: 500;
+		}
 	</style>
 </head>
 
@@ -115,10 +125,12 @@
 									<td class="text-center">
 										<?php if($data['diapprove_pada'] == NULL && $data['ttd_penerima'] != NULL): ?>
 											<a href="<?= base_url('hapus/' . $data['id']) ?>" class="btn btn-sm btn-danger fw-bold fs-14 m-1">Hapus</a>
+											<a class="btn btn-sm btn-info text fw-bold fs-14 m-1" onclick="editData(<?= $data['id'] ?>)">Edit</a>
 											<a href="<?= base_url('approve/' . $data['id']) ?>" class="btn btn-sm btn-success fw-bold fs-14 m-1">Approve</a>
 										<?php elseif($data['diapprove_pada'] == NULL && $data['ttd_penerima'] == NULL): ?>
 											<a href="<?= base_url('hapus/' . $data['id']) ?>" class="btn btn-sm btn-danger fw-bold fs-14 m-1">Hapus</a>
-											<a class="btn btn-sm btn-primary fw-bold fs-14 m-1" onclick="isiTtd(<?= $data['id'] ?>)">TTD</a>
+											<a class="btn btn-sm btn-primary fw-bold fs-14 m-1" onclick="editData(<?= $data['id'] ?>)">Edit</a>
+											<a class="btn btn-sm btn-info fw-bold fs-14 m-1" style="color: white" onclick="isiTtd(<?= $data['id'] ?>)">TTD</a>
 										<?php else: ?>
 											-
 										<?php endif ?>
@@ -212,8 +224,94 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger fw-bold fs-15" data-bs-dismiss="modal">Batal</button>
-						<button type="button" onclick="validateForm('draft')" id="draftBtn" class="btn btn-primary fw-bold fs-15">Draft</button>
-						<button type="button" onclick="validateForm('tambahkan')" class="btn btn-success fw-bold fs-15">Tambahkan</button>
+						<button type="button" onclick="validateForm()" id="draftBtn" class="btn btn-primary fw-bold fs-15">Draft</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalEdit"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title fw-bold">Form Edit Penerimaan Dokumen</h5>
+				</div>
+				<form class="needs-validation" id="form_edit_penerimaan_dokumen" action="<?= base_url('edit/') ?>" method="post" novalidate>
+					<div class="modal-body">
+						<div class="form-row">
+							<div class="col-md-12 mb-3">
+								<label for="nama_pengirim">Nama Pengirim</label>
+								<input type="text" class="form-control border border-dark" name="nama_pengirim"
+									placeholder="Masukkan nama pengirim" required>
+								<div class="valid-feedback">
+									Nama pengirim telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Nama pengirim belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="nomor_dokumen">Nomor Dokumen</label>
+								<input type="text" class="form-control border border-dark" name="nomor_dokumen"
+									placeholder="Masukkan nomor dokumen" required>
+								<div class="valid-feedback">
+									Nomor dokumen telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Nomor dokumen belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="perihal">Perihal</label>
+								<input type="text" class="form-control border border-dark" name="perihal"
+									placeholder="Masukkan perihal" required>
+								<div class="valid-feedback">
+									Perihal telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Perihal belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="tanggal_diterima" style="width: 100%;">Tanggal Diterima</label>
+								<input type="text" class="form-control border border-dark"
+									name="tanggal_diterima" placeholder="Masukkan tanggal diterima" style="background-color: #ffffff;" required>
+								<div class="valid-feedback">
+									Tanggal diterima telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Tanggal diterima belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="nama_penerima">Nama Penerima</label>
+								<input type="text" class="form-control border border-dark" name="nama_penerima"
+									placeholder="Masukkan nama penerima" required>
+								<div class="valid-feedback">
+									Nama penerima telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Nama penerima belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="subdit">Subdit</label>
+								<input type="text" class="form-control border border-dark" name="subdit"
+									placeholder="Masukkan subdit" required>
+								<div class="valid-feedback">
+									Subdit telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Subdit belum diisi!
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger fw-bold fs-15" data-bs-dismiss="modal">Batal</button>
+						<button type="submit" class="btn btn-success fw-bold fs-15">Simpan Perubahan</button>
 					</div>
 				</form>
 			</div>
@@ -225,7 +323,7 @@
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title fw-bold">Form Tambah Penerimaan Dokumen</h5>
+					<h5 class="modal-title fw-bold">Form TTD Penerimaan Dokumen</h5>
 				</div>
 				<form class="needs-validation" id="form_ttd" action="<?= base_url('ttd') ?>" method="post" novalidate>
 					<div class="modal-body">
@@ -238,13 +336,19 @@
 								<div>
 									<button type="button" class="btn btn-sm btn-danger fw-bold fs-14" id="hapus_ttd">Ulangi</button>
 								</div>
+								<div class="form-check mt-3">
+									<input class="form-check-input" type="checkbox" value="approve" name="approve" id="approve">
+									<label class="form-check-label" for="approve">
+										Approve Sekalian
+									</label>
+								</div>
 							</div>
 							<input type="hidden" id="tanda_tangan_penerima" name="tanda_tangan_penerima" />
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger fw-bold fs-15" data-bs-dismiss="modal">Batal</button>
-						<button type="button" id="submitTtdBtn" onclick="submitFormAndTtd()" class="btn btn-success fw-bold fs-15">Tambahkan</button>
+						<button type="button" id="submitTtdBtn" onclick="submitFormAndTtd()" class="btn btn-success fw-bold fs-15">Simpan</button>
 					</div>
 				</form>
 			</div>
@@ -292,6 +396,7 @@
 		var penerimaanDokumenDatatable = $('#penerimaanDokumenDatatable').DataTable({
 			responsive: true,
 			scrollX: true,
+			aaSorting: [],
 			dom: 'Bfrtip',
 			buttons: [
 				{
@@ -444,7 +549,7 @@
 		})();
 	</script>
 	<script>
-		function validateForm(submitChoice){
+		function validateForm(){
 			namaPengirim = $("#nama_pengirim").val();
 			nomorDokumen = $("#nomor_dokumen").val();
 			perihal = $("#perihal").val();
@@ -490,29 +595,23 @@
 				});
 			}
 			if (namaPengirim !== "" && nomorDokumen !== "" && perihal !== "" && tanggalDiterima !== "" && namaPenerima !== "" && subdit !== "") {
-				if(submitChoice == 'draft'){
-					$.post("<?= base_url('tambah') ?>", {
-						nama_pengirim: namaPengirim,
-						nomor_dokumen: nomorDokumen,
-						perihal: perihal,
-						tanggal_diterima: tanggalDiterima,
-						nama_penerima: namaPenerima,
-						subdit: subdit
-					},
-					function(data,status){
-						Swal.fire({
-							title: "Yeay!",
-							text: data.message,
-							icon: "success"
-						}).then(function(){
-							window.location.href = '<?= base_url() ?>';
-						});
+				$.post("<?= base_url('tambah') ?>", {
+					nama_pengirim: namaPengirim,
+					nomor_dokumen: nomorDokumen,
+					perihal: perihal,
+					tanggal_diterima: tanggalDiterima,
+					nama_penerima: namaPenerima,
+					subdit: subdit
+				},
+				function(data,status){
+					Swal.fire({
+						title: "Yeay!",
+						text: data.message,
+						icon: "success"
+					}).then(function(){
+						window.location.href = '<?= base_url() ?>';
 					});
-				} else {
-					$("#modalTambah").modal('hide');
-					$("#modalTtd").modal('show');
-					$('#submitTtdBtn').attr("onclick", "submitFormAndTtd()");
-				}
+				});
 			}
 		}
 
@@ -553,13 +652,39 @@
 			$('#submitTtdBtn').attr("onclick", "submitTtd(" + id + ")");
 		}
 
+		let idData;
+		function editData(id){
+			idData = id;
+			$('#modalEdit').modal('show');
+			$.get("<?= base_url('data/') ?>" + idData, function(data, status){
+            if(status == "success"){
+                $("#form_edit_penerimaan_dokumen").attr('action', '<?= base_url('edit/') ?>' + idData);
+                $('#form_edit_penerimaan_dokumen').find('input[name=nama_pengirim]').val(data.data.nama_pengirim);
+                $('#form_edit_penerimaan_dokumen').find('input[name=nomor_dokumen]').val(data.data.nomor_dokumen);
+                $('#form_edit_penerimaan_dokumen').find('input[name=perihal]').val(data.data.perihal);
+                $('#form_edit_penerimaan_dokumen').find('input[name=tanggal_diterima]').val(data.data.tanggal_diterima);
+                $('#form_edit_penerimaan_dokumen').find('input[name=nama_penerima]').val(data.data.nama_penerima);
+                $('#form_edit_penerimaan_dokumen').find('input[name=subdit]').val(data.data.subdit);
+            }
+            else{
+                $('#ubahModal').modal('hide');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ups!',
+                    text: data.message,
+                });
+            }
+        });
+		}
+
 		function submitTtd(id){
 			if(isSigned){
 				let canvas = document.getElementById("ttd_penerima");
 				let dataUrl = canvas.toDataURL();
-				console.log(dataUrl);
+				console.log($("#approve").val());
 				$.post("<?= base_url('ttd/') ?>" + id, {
 					ttd_penerima: dataUrl,
+					approve: $("#approve").val()
 				},
 				function(data,status){
 					Swal.fire({

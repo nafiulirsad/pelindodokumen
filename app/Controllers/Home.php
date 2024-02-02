@@ -63,10 +63,13 @@ class Home extends BaseController
                 'ttd_penerima' => $p['ttd_penerima'],
                 'diubah_pada' => date("Y-m-d H:i:s")
             ];
+            if($p['approve']){
+                $updateData['diapprove_pada'] = date("Y-m-d H:i:s");
+            }
             if($penerimaanDokumenModel->updateDataById($id, $updateData)){
                 return $this->response->setJSON([
                     'error' => false,
-                    'message' => "Berhasil menambahkan tanda tangan penerima.",
+                    'message' => $p["approve"] == "approve" ? "Berhasil menambahkan tanda tangan penerima sekligus approve." : "Berhasil menambahkan tanda tangan penerima.",
                 ]);
             } else {
                 return $this->response->setJSON([
@@ -77,9 +80,53 @@ class Home extends BaseController
         }
     }
 
+    public function data($id){
+        $penerimaanDokumenModel = new PenerimaanDokumenModel();
+        $penerimaanDokumenData = $penerimaanDokumenModel->getDataById($id);
+        if(!$penerimaanDokumenData){
+            return $this->response->setJSON([
+                'error' => true,
+                'message' => "ID penerimaan dokumen tidak ditemukan. Silakan menggunakan ID penerimaan dokumen yang lain.",
+                'data' => []
+            ]);
+        }
+        $returnData = [
+            'error' => false,
+            'message' => $penerimaanDokumenData ? "Berhasil mendapatkan 1 data pengguna." : "Data pengguna tidak ditemukan.",
+            'total_data' => $penerimaanDokumenData ? 1 : 0,
+            'data' => $penerimaanDokumenData,
+        ];
+        return $this->response->setJSON($returnData);
+    }
+
+    public function edit($id){
+        $penerimaanDokumenModel = new PenerimaanDokumenModel();
+        $p = $this->request->getPost();
+        if($p){
+            $updateData = [
+                'nama_pengirim' => $p['nama_pengirim'],
+                'nomor_dokumen' => $p['nomor_dokumen'],
+                'perihal' => $p['perihal'],
+                'tanggal_diterima' => $p['tanggal_diterima'],
+                'nama_penerima' => $p['nama_penerima'],
+                'subdit' => $p['subdit'],
+            ];
+            if($penerimaanDokumenModel->updateDataById($id, $updateData)){
+                session()->setFlashdata('alert', 'berhasil_edit');
+                return redirect()->to(base_url());
+            } else {
+                session()->setFlashdata('alert', 'gagal_coba_lagi');
+                return redirect()->to(base_url());
+            }
+        }
+    }
+
     public function hapus($id){
         $penerimaanDokumenModel = new PenerimaanDokumenModel();
-        if($penerimaanDokumenModel->deleteDataById($id)){
+        $updateData = [
+            'dihapus_pada' => date("Y-m-d H:i:s")
+        ];
+        if($penerimaanDokumenModel->updateDataById($id, $updateData)){
             session()->setFlashdata('alert', 'berhasil_hapus');
             return redirect()->to(base_url());
         } else {

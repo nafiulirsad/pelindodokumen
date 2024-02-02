@@ -15,8 +15,19 @@ class PenerimaanDokumenModel extends Model{
     public function getAllData(){
         $db      = \Config\Database::connect();
         $builder = $db->table('penerimaan_dokumen');
-        $builder = $builder->select('*')->orderBy('dibuat_pada', "DESC");
+        $builder = $builder->select('*')->where('dihapus_pada', null)->orderBy('dibuat_pada', "DESC");
         $result = $builder->get()->getResultArray();
+        return $result;
+    }
+
+    public function getDataById($id){
+        $db      = \Config\Database::connect();
+        $builder = $db->table('penerimaan_dokumen');
+        $builder = $builder->select('*')->where('id', $id)->orderBy('dibuat_pada', "DESC");
+        $result = $builder->get()->getResultArray();
+        if($result){
+            return $result[0];
+        }
         return $result;
     }
 
