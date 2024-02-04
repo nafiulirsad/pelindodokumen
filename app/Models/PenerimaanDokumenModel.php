@@ -31,6 +31,14 @@ class PenerimaanDokumenModel extends Model{
         return $result;
     }
 
+    public function getAllPenerimaBelumTtdByDate($date){
+        $db      = \Config\Database::connect();
+        $builder = $db->table('penerimaan_dokumen');
+        $builder = $builder->select('nama_penerima')->where('tanggal_diterima', $date)->where('ttd_penerima', NULL);
+        $result = $builder->distinct()->get()->getResultArray();
+        return $result;
+    }
+
     public function deleteDataById($id){
         $db     = \Config\Database::connect();
         $builder = $db->table('penerimaan_dokumen');
@@ -42,6 +50,13 @@ class PenerimaanDokumenModel extends Model{
         $db     = \Config\Database::connect();
         $builder  = $db->table('penerimaan_dokumen');
         $builder->where('id', $id);
+        return $builder->update($data);
+    }
+
+    public function updateDataByNamaPenerimaAndTanggalDiterima($namaPenerima, $tanggalDiterima, $data){
+        $db     = \Config\Database::connect();
+        $builder  = $db->table('penerimaan_dokumen');
+        $builder->where('nama_penerima', $namaPenerima)->where('tanggal_diterima', $tanggalDiterima);
         return $builder->update($data);
     }
 }

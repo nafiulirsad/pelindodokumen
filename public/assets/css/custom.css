@@ -1,0 +1,40 @@
+:root{
+    --dt-row-selected: 1, 9, 115;
+}
+.ttd_penerima {
+    border: 3px dotted #CCCCCC;
+    border-radius: 15px;
+    cursor: crosshair;
+    overflow: hidden !important;
+}
+.exportBtn {
+    border-radius: 10% !important;
+}
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+}
+.flatpickr-wrapper{
+    width: 100%;
+}
+body.modal-open {
+    height: 80vh !important;
+    overflow-y: hidden !important;
+}
+.form-check-input{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-color: blue;
+}
+.form-check-label{
+    margin-top: 5px;
+      font-weight: 500;
+}
+.select-checkbox::after{
+    margin-top: -19px !important;
+}

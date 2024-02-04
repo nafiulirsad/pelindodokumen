@@ -12,3 +12,4 @@ $routes->get('/approve/(:any)', 'Home::approve/$1');
 $routes->post('/ttd/(:any)', 'Home::ttd/$1');
 $routes->get('/data/(:any)', 'Home::data/$1');
 $routes->post('/edit/(:any)', 'Home::edit/$1');
+$routes->post('/ttd_sekaligus', 'Home::ttd_sekaligus');

@@ -7,81 +7,47 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"">
 
 	<link rel="apple-touch-icon" sizes="57x57"
-		href="<?= base_url('public') ?>/assets/images/logo/apple-icon-57x57.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60"
-		href="<?= base_url('public') ?>/assets/images/logo/apple-icon-60x60.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72"
-		href="<?= base_url('public') ?>/assets/images/logo/apple-icon-72x72.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="76x76"
-		href="<?= base_url('public') ?>/assets/images/logo/apple-icon-76x76.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-76x76.png">
 	<link rel="apple-touch-icon" sizes="114x114"
-		href="<?= base_url('public') ?>/assets/images/logo/apple-icon-114x114.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-114x114.png">
 	<link rel="apple-touch-icon" sizes="120x120"
-		href="<?= base_url('public') ?>/assets/images/logo/apple-icon-120x120.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-120x120.png">
 	<link rel="apple-touch-icon" sizes="144x144"
-		href="<?= base_url('public') ?>/assets/images/logo/apple-icon-144x144.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-144x144.png">
 	<link rel="apple-touch-icon" sizes="152x152"
-		href="<?= base_url('public') ?>/assets/images/logo/apple-icon-152x152.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-152x152.png">
 	<link rel="apple-touch-icon" sizes="180x180"
-		href="<?= base_url('public') ?>/assets/images/logo/apple-icon-180x180.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-180x180.png">
 	<link rel="icon" type="image/png" sizes="192x192"
-		href="<?= base_url('public') ?>/assets/images/logo/android-icon-192x192.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/android-icon-192x192.png">
 	<link rel="icon" type="image/png" sizes="32x32"
-		href="<?= base_url('public') ?>/assets/images/logo/favicon-32x32.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="96x96"
-		href="<?= base_url('public') ?>/assets/images/logo/favicon-96x96.png">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16"
-		href="<?= base_url('public') ?>/assets/images/logo/favicon-16x16.png">
-	<link rel="manifest" href="<?= base_url('public') ?>/assets/images/logo/manifest.json">
+		href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/favicon-16x16.png">
+	<link rel="manifest" href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/manifest.json">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage"
-		content="<?= base_url('public') ?>/assets/images/logo/ms-icon-144x144.png">
+		content="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/ms-icon-144x144.png">
 
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"/>
 	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css"/>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"/>
 	<link rel="stylesheet" href="https://cdn.datatables.net/select/1.7.0/css/select.bootstrap5.min.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css"/>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<style>
-		#ttd_penerima {
-			border: 3px dotted #CCCCCC;
-			border-radius: 15px;
-			cursor: crosshair;
-			overflow: hidden !important;
-		}
-		.exportBtn {
-			border-radius: 10% !important;
-		}
-		html,
-		body {
-			overflow-x: hidden;
-		}
-
-		body {
-			position: relative;
-		}
-		.flatpickr-wrapper{
-			width: 100%;
-		}
-		body.modal-open {
-			height: 80vh !important;
-			overflow-y: hidden !important;
-		}
-		.form-check-input{
-			width: 30px;
-			height: 30px;
-			margin-right: 10px;
-			border-color: blue;
-		}
-		.form-check-label{
-			margin-top: 5px;
-  			font-weight: 500;
-		}
-	</style>
+	<link rel="stylesheet" href="<?= base_url() . str_contains(base_url(), "localhost") ? "" : "public/" ?>/assets/css/custom.css" />
 </head>
 
 <body>
@@ -89,13 +55,14 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="mt-5" style="text-align: right;">
-					<button class="btn btn-success fw-bold fs-15" data-bs-toggle="modal" data-bs-target="#modalTambah"><i
-							class="fa-solid fa-plus fw-bold fs-18 me-2"></i>Tambah Penerimaan Dokumen</button>
+					<button class="btn btn-success fw-bold fs-15" data-bs-toggle="modal" data-bs-target="#modalTambah"><i class="fa-solid fa-plus fw-bold fs-18 me-2"></i>Tambah Penerimaan Dokumen</button>
+					<button class="btn btn-success fw-bold fs-15" data-bs-toggle="modal" data-bs-target="#modalTtdSekaligus"><i class="fa-solid fa-plus fw-bold fs-18 me-2"></i>TTD Sekaligus</button>
 				</div>
 				<div class="mt-3">
 					<table id="penerimaanDokumenDatatable" class="table table-striped" style="width:100%">
 						<thead>
 							<tr style="vertical-align: middle;">
+								<th></th>
 								<th>Nama Pengirim</th>
 								<th class="text-center">Nomor Dokumen</th>
 								<th>Perihal</th>
@@ -109,6 +76,7 @@
 						<tbody>
 							<?php foreach($allData as $data): ?>
 								<tr style="vertical-align: middle;">
+									<td></td>
 									<td><?= $data['nama_pengirim'] ?></td>
 									<td class="text-center"><?= $data['nomor_dokumen'] ?></td>
 									<td><?= $data['perihal'] ?></td>
@@ -125,12 +93,12 @@
 									<td class="text-center">
 										<?php if($data['diapprove_pada'] == NULL && $data['ttd_penerima'] != NULL): ?>
 											<a href="<?= base_url('hapus/' . $data['id']) ?>" class="btn btn-sm btn-danger fw-bold fs-14 m-1">Hapus</a>
-											<a class="btn btn-sm btn-info text fw-bold fs-14 m-1" onclick="editData(<?= $data['id'] ?>)">Edit</a>
+											<a class="btn btn-sm btn-primary text fw-bold fs-14 m-1" onclick="editData(<?= $data['id'] ?>)">Edit</a>
 											<a href="<?= base_url('approve/' . $data['id']) ?>" class="btn btn-sm btn-success fw-bold fs-14 m-1">Approve</a>
 										<?php elseif($data['diapprove_pada'] == NULL && $data['ttd_penerima'] == NULL): ?>
 											<a href="<?= base_url('hapus/' . $data['id']) ?>" class="btn btn-sm btn-danger fw-bold fs-14 m-1">Hapus</a>
 											<a class="btn btn-sm btn-primary fw-bold fs-14 m-1" onclick="editData(<?= $data['id'] ?>)">Edit</a>
-											<a class="btn btn-sm btn-info fw-bold fs-14 m-1" style="color: white" onclick="isiTtd(<?= $data['id'] ?>)">TTD</a>
+											<a class="btn btn-sm btn-success fw-bold fs-14 m-1" onclick="isiTtd(<?= $data['id'] ?>)">TTD</a>
 										<?php else: ?>
 											-
 										<?php endif ?>
@@ -151,94 +119,7 @@
 				<div class="modal-header">
 					<h5 class="modal-title fw-bold">Form Tambah Penerimaan Dokumen</h5>
 				</div>
-				<form class="needs-validation" id="form_penerimaan_dokumen" action="<?= base_url('tambah') ?>" method="post" novalidate>
-					<div class="modal-body">
-						<div class="form-row">
-							<div class="col-md-12 mb-3">
-								<label for="nama_pengirim">Nama Pengirim</label>
-								<input type="text" class="form-control border border-dark" id="nama_pengirim" name="nama_pengirim"
-									placeholder="Masukkan nama pengirim" required>
-								<div class="valid-feedback">
-									Nama pengirim telah diisi!
-								</div>
-								<div class="invalid-feedback">
-									Nama pengirim belum diisi!
-								</div>
-							</div>
-							<div class="col-md-12 mb-3">
-								<label for="nomor_dokumen">Nomor Dokumen</label>
-								<input type="text" class="form-control border border-dark" id="nomor_dokumen" name="nomor_dokumen"
-									placeholder="Masukkan nomor dokumen" required>
-								<div class="valid-feedback">
-									Nomor dokumen telah diisi!
-								</div>
-								<div class="invalid-feedback">
-									Nomor dokumen belum diisi!
-								</div>
-							</div>
-							<div class="col-md-12 mb-3">
-								<label for="perihal">Perihal</label>
-								<input type="text" class="form-control border border-dark" id="perihal" name="perihal"
-									placeholder="Masukkan perihal" required>
-								<div class="valid-feedback">
-									Perihal telah diisi!
-								</div>
-								<div class="invalid-feedback">
-									Perihal belum diisi!
-								</div>
-							</div>
-							<div class="col-md-12 mb-3">
-								<label for="tanggal_diterima" style="width: 100%;">Tanggal Diterima</label>
-								<input type="text" class="form-control border border-dark" id="tanggal_diterima"
-									name="tanggal_diterima" value="<?= date('Y-m-d') ?>" placeholder="Masukkan tanggal diterima" style="background-color: #ffffff;" required>
-								<div class="valid-feedback">
-									Tanggal diterima telah diisi!
-								</div>
-								<div class="invalid-feedback">
-									Tanggal diterima belum diisi!
-								</div>
-							</div>
-							<div class="col-md-12 mb-3">
-								<label for="nama_penerima">Nama Penerima</label>
-								<input type="text" class="form-control border border-dark" id="nama_penerima" name="nama_penerima"
-									placeholder="Masukkan nama penerima" required>
-								<div class="valid-feedback">
-									Nama penerima telah diisi!
-								</div>
-								<div class="invalid-feedback">
-									Nama penerima belum diisi!
-								</div>
-							</div>
-							<div class="col-md-12 mb-3">
-								<label for="subdit">Subdit</label>
-								<input type="text" class="form-control border border-dark" id="subdit" name="subdit"
-									placeholder="Masukkan subdit" required>
-								<div class="valid-feedback">
-									Subdit telah diisi!
-								</div>
-								<div class="invalid-feedback">
-									Subdit belum diisi!
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger fw-bold fs-15" data-bs-dismiss="modal">Batal</button>
-						<button type="button" onclick="validateForm()" id="draftBtn" class="btn btn-primary fw-bold fs-15">Draft</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalEdit"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title fw-bold">Form Edit Penerimaan Dokumen</h5>
-				</div>
-				<form class="needs-validation" id="form_edit_penerimaan_dokumen" action="<?= base_url('edit/') ?>" method="post" novalidate>
+				<form class="needs-validation" id="form_tambah_penerimaan_dokumen" action="<?= base_url('tambah') ?>" method="post" novalidate>
 					<div class="modal-body">
 						<div class="form-row">
 							<div class="col-md-12 mb-3">
@@ -276,7 +157,94 @@
 							</div>
 							<div class="col-md-12 mb-3">
 								<label for="tanggal_diterima" style="width: 100%;">Tanggal Diterima</label>
-								<input type="text" class="form-control border border-dark"
+								<input type="text" class="form-control border border-dark" id="tanggal_diterima"
+									name="tanggal_diterima" value="<?= date('Y-m-d') ?>" placeholder="Masukkan tanggal diterima" style="background-color: #ffffff;" required>
+								<div class="valid-feedback">
+									Tanggal diterima telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Tanggal diterima belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="nama_penerima">Nama Penerima</label>
+								<input type="text" class="form-control border border-dark" name="nama_penerima"
+									placeholder="Masukkan nama penerima" required>
+								<div class="valid-feedback">
+									Nama penerima telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Nama penerima belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="subdit">Subdit</label>
+								<input type="text" class="form-control border border-dark" name="subdit"
+									placeholder="Masukkan subdit" required>
+								<div class="valid-feedback">
+									Subdit telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Subdit belum diisi!
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger fw-bold fs-15" data-bs-dismiss="modal">Batal</button>
+						<button type="submit" class="btn btn-primary fw-bold fs-15">Draft</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalEdit"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title fw-bold">Form Edit Penerimaan Dokumen</h5>
+				</div>
+				<form class="needs-validation" id="form_edit_penerimaan_dokumen" action="" method="post" novalidate>
+					<div class="modal-body">
+						<div class="form-row">
+							<div class="col-md-12 mb-3">
+								<label for="nama_pengirim">Nama Pengirim</label>
+								<input type="text" class="form-control border border-dark" name="nama_pengirim"
+									placeholder="Masukkan nama pengirim" required>
+								<div class="valid-feedback">
+									Nama pengirim telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Nama pengirim belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="nomor_dokumen">Nomor Dokumen</label>
+								<input type="text" class="form-control border border-dark" name="nomor_dokumen"
+									placeholder="Masukkan nomor dokumen" required>
+								<div class="valid-feedback">
+									Nomor dokumen telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Nomor dokumen belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="perihal">Perihal</label>
+								<input type="text" class="form-control border border-dark" name="perihal"
+									placeholder="Masukkan perihal" required>
+								<div class="valid-feedback">
+									Perihal telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Perihal belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="tanggal_diterima_edit" style="width: 100%;">Tanggal Diterima</label>
+								<input type="text" class="form-control border border-dark" id="tanggal_diterima_edit"
 									name="tanggal_diterima" placeholder="Masukkan tanggal diterima" style="background-color: #ffffff;" required>
 								<div class="valid-feedback">
 									Tanggal diterima telah diisi!
@@ -325,19 +293,19 @@
 				<div class="modal-header">
 					<h5 class="modal-title fw-bold">Form TTD Penerimaan Dokumen</h5>
 				</div>
-				<form class="needs-validation" id="form_ttd" action="<?= base_url('ttd') ?>" method="post" novalidate>
+				<form class="needs-validation" id="form_ttd" action="" method="post" novalidate>
 					<div class="modal-body">
 						<div class="form-row">
 							<div class="col-md-12 mb-3">
 								<label for="ttd_penerima">Tanda Tangan Penerima</label>
-								<canvas id="ttd_penerima" class="border border-dark mb-1" width="300" height="150">
+								<canvas id="ttd_penerima" class="ttd_penerima border border-dark mb-1" width="300" height="150">
 									Tanda Tangan Penerima
 								</canvas>
 								<div>
 									<button type="button" class="btn btn-sm btn-danger fw-bold fs-14" id="hapus_ttd">Ulangi</button>
 								</div>
 								<div class="form-check mt-3">
-									<input class="form-check-input" type="checkbox" value="approve" name="approve" id="approve">
+									<input class="form-check-input" type="checkbox" value="" name="approve">
 									<label class="form-check-label" for="approve">
 										Approve Sekalian
 									</label>
@@ -348,7 +316,69 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger fw-bold fs-15" data-bs-dismiss="modal">Batal</button>
-						<button type="button" id="submitTtdBtn" onclick="submitFormAndTtd()" class="btn btn-success fw-bold fs-15">Simpan</button>
+						<button type="button" id="submitTtdBtn" onclick="" class="btn btn-success fw-bold fs-15">Simpan</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="modalTtdSekaligus" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalTtdSekaligus"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title fw-bold">Form TTD Sekaligus Penerimaan Dokumen</h5>
+				</div>
+				<form class="needs-validation" id="form_ttd_sekaligus" action="<?= base_url('ttd_sekaligus') ?>" method="post" novalidate>
+					<div class="modal-body">
+						<div class="form-row">
+							<div class="col-md-12 mb-3">
+								<label for="tanggal_diterima_ttd_sekaligus" style="width: 100%;">Tanggal Diterima</label>
+								<input type="text" class="form-control border border-dark" id="tanggal_diterima_ttd_sekaligus"
+									name="tanggal_diterima" value="<?= date('Y-m-d') ?>" placeholder="Masukkan tanggal diterima" style="background-color: #ffffff;" required>
+								<div class="valid-feedback">
+									Tanggal diterima telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Tanggal diterima belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="nama_penerima">Nama Penerima</label>
+								<select class="form-select form-select-md border border-dark" aria-label=".form-select-sm example" name="nama_penerima" required>
+									<option value="" selected>--- Pilih Nama Penerima ---</option>
+									<?php foreach($allPenerimaToday as $penerima): ?>
+										<option value="<?= $penerima['nama_penerima'] ?>"><?= $penerima['nama_penerima'] ?></option>
+									<?php endforeach ?>
+								</select>
+								<div class="valid-feedback">
+									Nama penerima telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Nama penerima belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="ttd_penerima_sekaligus">Tanda Tangan Penerima</label>
+								<canvas id="ttd_penerima_sekaligus" class="ttd_penerima border border-dark mb-1" width="300" height="150">
+									Tanda Tangan Penerima
+								</canvas>
+								<div>
+									<button type="button" class="btn btn-sm btn-danger fw-bold fs-14" id="hapus_ttd_sekaligus">Ulangi</button>
+								</div>
+								<div class="form-check mt-3">
+									<input class="form-check-input" type="checkbox" value="" name="approve">
+									<label class="form-check-label" for="approve">
+										Approve Sekalian
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger fw-bold fs-15" data-bs-dismiss="modal">Batal</button>
+						<button type="submit" class="btn btn-success fw-bold fs-15">Simpan</button>
 					</div>
 				</form>
 			</div>
@@ -375,6 +405,14 @@
 			allowInput: true,
 			static : true
 		});
+		flatpickr("#tanggal_diterima_edit", {
+			allowInput: true,
+			static : true
+		});
+		flatpickr("#tanggal_diterima_ttd_sekaligus", {
+			allowInput: true,
+			static : true
+		});
 		// Example starter JavaScript for disabling form submissions if there are invalid fields
 		(function () {
 			'use strict';
@@ -397,6 +435,17 @@
 			responsive: true,
 			scrollX: true,
 			aaSorting: [],
+			columnDefs: [
+				{
+					orderable: false,
+					className: 'select-checkbox',
+					targets: 0
+				}
+			],
+			select: {
+				style: 'multi',
+				selector: 'td:first-child'
+			},
 			dom: 'Bfrtip',
 			buttons: [
 				{
@@ -549,52 +598,15 @@
 		})();
 	</script>
 	<script>
-		function validateForm(){
-			namaPengirim = $("#nama_pengirim").val();
-			nomorDokumen = $("#nomor_dokumen").val();
-			perihal = $("#perihal").val();
-			tanggalDiterima = $("#tanggal_diterima").val();
-			namaPenerima = $("#nama_penerima").val();
-			subdit = $("#subdit").val();
-			if (namaPengirim == "") {
-				Swal.fire({
-					title: "Ups!",
-					text: "Nama pengirim belum diisi!",
-					icon: "error"
-				});
-			}
-			else if (nomorDokumen == "") {
-				Swal.fire({
-					title: "Ups!",
-					text: "Nomor dokumen belum diisi!",
-					icon: "error"
-				});
-			} else if (perihal == "") {
-				Swal.fire({
-					title: "Ups!",
-					text: "Perihal belum diisi!",
-					icon: "error"
-				});
-			} else if (tanggalDiterima == "") {
-				Swal.fire({
-					title: "Ups!",
-					text: "Tanggal diterima belum diisi!",
-					icon: "error"
-				});
-			} else if (namaPenerima == "") {
-				Swal.fire({
-					title: "Ups!",
-					text: "Nama penerima belum diisi!",
-					icon: "error"
-				});
-			} else if (subdit == "") {
-				Swal.fire({
-					title: "Ups!",
-					text: "Subdit belum diisi!",
-					icon: "error"
-				});
-			}
-			if (namaPengirim !== "" && nomorDokumen !== "" && perihal !== "" && tanggalDiterima !== "" && namaPenerima !== "" && subdit !== "") {
+		$("#form_tambah_penerimaan_dokumen").submit(function(e){
+			let namaPengirim = $('#form_tambah_penerimaan_dokumen').find('input[name=nama_pengirim]').val();
+			let nomorDokumen = $('#form_tambah_penerimaan_dokumen').find('input[name=nomor_dokumen]').val();
+			let perihal = $('#form_tambah_penerimaan_dokumen').find('input[name=perihal]').val();
+			let tanggalDiterima = $('#form_tambah_penerimaan_dokumen').find('input[name=tanggal_diterima]').val();
+			let namaPenerima = $('#form_tambah_penerimaan_dokumen').find('input[name=nama_penerima]').val();
+			let subdit = $('#form_tambah_penerimaan_dokumen').find('input[name=subdit]').val();
+			if(namaPengirim != "" && nomorDokumen != "" && perihal != "" && tanggalDiterima != "" && namaPenerima != "" && subdit != ""){
+				e.preventDefault();
 				$.post("<?= base_url('tambah') ?>", {
 					nama_pengirim: namaPengirim,
 					nomor_dokumen: nomorDokumen,
@@ -612,79 +624,79 @@
 						window.location.href = '<?= base_url() ?>';
 					});
 				});
-			}
-		}
-
-		function submitFormAndTtd(){
-			if(isSigned){
-				let canvas = document.getElementById("ttd_penerima");
-				let dataUrl = canvas.toDataURL();
-				console.log(dataUrl);
-				$.post("<?= base_url('tambah') ?>", {
-					nama_pengirim: namaPengirim,
-					nomor_dokumen: nomorDokumen,
-					perihal: perihal,
-					tanggal_diterima: tanggalDiterima,
-					nama_penerima: namaPenerima,
-					subdit: subdit,
-					ttd_penerima: dataUrl,
-				},
-				function(data,status){
-					Swal.fire({
-						title: "Yeay!",
-						text: data.message,
-						icon: "success"
-					}).then(function(){
-						window.location.href = '<?= base_url() ?>';
-					});
-				});
 			} else {
-				Swal.fire({
-					title: "Ups!",
-					text: "Anda belum mengisi TTD!",
-					icon: "error"
-				});
+				return false;
 			}
-		}
-
-		function isiTtd(id){
-			$('#modalTtd').modal('show');
-			$('#submitTtdBtn').attr("onclick", "submitTtd(" + id + ")");
-		}
+		});
 
 		let idData;
 		function editData(id){
 			idData = id;
 			$('#modalEdit').modal('show');
 			$.get("<?= base_url('data/') ?>" + idData, function(data, status){
-            if(status == "success"){
-                $("#form_edit_penerimaan_dokumen").attr('action', '<?= base_url('edit/') ?>' + idData);
-                $('#form_edit_penerimaan_dokumen').find('input[name=nama_pengirim]').val(data.data.nama_pengirim);
-                $('#form_edit_penerimaan_dokumen').find('input[name=nomor_dokumen]').val(data.data.nomor_dokumen);
-                $('#form_edit_penerimaan_dokumen').find('input[name=perihal]').val(data.data.perihal);
-                $('#form_edit_penerimaan_dokumen').find('input[name=tanggal_diterima]').val(data.data.tanggal_diterima);
-                $('#form_edit_penerimaan_dokumen').find('input[name=nama_penerima]').val(data.data.nama_penerima);
-                $('#form_edit_penerimaan_dokumen').find('input[name=subdit]').val(data.data.subdit);
-            }
-            else{
-                $('#ubahModal').modal('hide');
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Ups!',
-                    text: data.message,
-                });
-            }
-        });
+				if(status == "success"){
+					$("#form_edit_penerimaan_dokumen").attr('action', '<?= base_url('edit/') ?>' + idData);
+					$('#form_edit_penerimaan_dokumen').find('input[name=nama_pengirim]').val(data.data.nama_pengirim);
+					$('#form_edit_penerimaan_dokumen').find('input[name=nomor_dokumen]').val(data.data.nomor_dokumen);
+					$('#form_edit_penerimaan_dokumen').find('input[name=perihal]').val(data.data.perihal);
+					$('#form_edit_penerimaan_dokumen').find('input[name=tanggal_diterima]').val(data.data.tanggal_diterima);
+					$('#form_edit_penerimaan_dokumen').find('input[name=nama_penerima]').val(data.data.nama_penerima);
+					$('#form_edit_penerimaan_dokumen').find('input[name=subdit]').val(data.data.subdit);
+				}
+				else{
+					$('#ubahModal').modal('hide');
+					Swal.fire({
+						icon: 'error',
+						title: 'Ups!',
+						text: data.message,
+					});
+				}
+			});
+		}
+
+		$("#form_edit_penerimaan_dokumen").submit(function(e){
+			let namaPengirim = $('#form_edit_penerimaan_dokumen').find('input[name=nama_pengirim]').val();
+			let nomorDokumen = $('#form_edit_penerimaan_dokumen').find('input[name=nomor_dokumen]').val();
+			let perihal = $('#form_edit_penerimaan_dokumen').find('input[name=perihal]').val();
+			let tanggalDiterima = $('#form_edit_penerimaan_dokumen').find('input[name=tanggal_diterima]').val();
+			let namaPenerima = $('#form_edit_penerimaan_dokumen').find('input[name=nama_penerima]').val();
+			let subdit = $('#form_edit_penerimaan_dokumen').find('input[name=subdit]').val();
+			if(namaPengirim != "" && nomorDokumen != "" && perihal != "" && tanggalDiterima != "" && namaPenerima != "" && subdit != ""){
+				e.preventDefault();
+				$.post("<?= base_url('edit/') ?>" + idData, {
+					nama_pengirim: namaPengirim,
+					nomor_dokumen: nomorDokumen,
+					perihal: perihal,
+					tanggal_diterima: tanggalDiterima,
+					nama_penerima: namaPenerima,
+					subdit: subdit
+				},
+				function(data,status){
+					Swal.fire({
+						title: "Yeay!",
+						text: data.message,
+						icon: "success"
+					}).then(function(){
+						window.location.href = '<?= base_url() ?>';
+					});
+				});
+			} else {
+				return false;
+			}
+		});
+
+		function isiTtd(id){
+			$('#modalTtd').modal('show');
+			$('#submitTtdBtn').attr("onclick", "submitTtd(" + id + ")");
 		}
 
 		function submitTtd(id){
 			if(isSigned){
 				let canvas = document.getElementById("ttd_penerima");
 				let dataUrl = canvas.toDataURL();
-				console.log($("#approve").val());
 				$.post("<?= base_url('ttd/') ?>" + id, {
 					ttd_penerima: dataUrl,
-					approve: $("#approve").val()
+					approve: $('#form_ttd').find('input[name=approve]').is(":checked")
 				},
 				function(data,status){
 					Swal.fire({
@@ -703,6 +715,168 @@
 				});
 			}
 		}
+	</script>
+	<script>
+		let isSignedSekaligus = false;
+		(function () {
+			window.requestAnimFrame = (function (callback) {
+				return window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.oRequestAnimationFrame ||
+					window.msRequestAnimaitonFrame ||
+					function (callback) {
+						window.setTimeout(callback, 1000 / 60);
+					};
+			})();
+
+			var canvasSekaligus = document.getElementById("ttd_penerima_sekaligus");
+			var ctxSekaligus = canvasSekaligus.getContext("2d");
+			ctxSekaligus.strokeStyle = "#222222";
+			ctxSekaligus.lineWidth = 4;
+
+			var drawingSekaligus = false;
+			var mousePosSekaligus = {
+				x: 0,
+				y: 0
+			};
+			var lastPosSekaligus = mousePosSekaligus;
+
+			canvasSekaligus.addEventListener("mousedown", function (e) {
+				isSignedSekaligus = true;
+				drawingSekaligus = true;
+				lastPosSekaligus = getmousePosSekaligus(canvasSekaligus, e);
+			}, false);
+
+			canvasSekaligus.addEventListener("mouseup", function (e) {
+				drawingSekaligus = false;
+			}, false);
+
+			canvasSekaligus.addEventListener("mousemove", function (e) {
+				mousePosSekaligus = getmousePosSekaligus(canvasSekaligus, e);
+			}, false);
+
+			// Add touch event support for mobile
+			canvasSekaligus.addEventListener("touchstart", function (e) {
+				isSignedSekaligus = true;
+				mousePosSekaligus = getTouchPosSekaligus(canvasSekaligus, e);
+				var touch = e.touches[0];
+				var me = new MouseEvent("mousedown", {
+					clientX: touch.clientX,
+					clientY: touch.clientY
+				});
+				canvasSekaligus.dispatchEvent(me);
+			}, false);
+
+			canvasSekaligus.addEventListener("touchmove", function (e) {
+				var touch = e.touches[0];
+				var me = new MouseEvent("mousemove", {
+					clientX: touch.clientX,
+					clientY: touch.clientY
+				});
+				canvasSekaligus.dispatchEvent(me);
+			}, false);
+
+			canvasSekaligus.addEventListener("touchend", function (e) {
+				var me = new MouseEvent("mouseup", {});
+				canvasSekaligus.dispatchEvent(me);
+			}, false);
+
+			function getmousePosSekaligus(canvasSekaligusDom, mouseEvent) {
+				var rect = canvasSekaligusDom.getBoundingClientRect();
+				return {
+					x: mouseEvent.clientX - rect.left,
+					y: mouseEvent.clientY - rect.top
+				}
+			}
+
+			function getTouchPosSekaligus(canvasSekaligusDom, touchEvent) {
+				var rect = canvasSekaligusDom.getBoundingClientRect();
+				return {
+					x: touchEvent.touches[0].clientX - rect.left,
+					y: touchEvent.touches[0].clientY - rect.top
+				}
+			}
+
+			function rendercanvasSekaligus() {
+				if (drawingSekaligus) {
+					ctxSekaligus.moveTo(lastPosSekaligus.x, lastPosSekaligus.y);
+					ctxSekaligus.lineTo(mousePosSekaligus.x, mousePosSekaligus.y);
+					ctxSekaligus.stroke();
+					lastPosSekaligus = mousePosSekaligus;
+				}
+			}
+
+			// Prevent scrolling when touching the canvas
+			document.body.addEventListener("touchstart", function (e) {
+				if (e.target == canvasSekaligus) {
+					e.preventDefault();
+				}
+			}, false);
+			document.body.addEventListener("touchend", function (e) {
+				if (e.target == canvasSekaligus) {
+					e.preventDefault();
+				}
+			}, false);
+			document.body.addEventListener("touchmove", function (e) {
+				if (e.target == canvasSekaligus) {
+					e.preventDefault();
+				}
+			}, false);
+
+			(function drawLoopSekaligus() {
+				requestAnimFrame(drawLoopSekaligus);
+				rendercanvasSekaligus();
+			})();
+
+			function clearcanvasSekaligus() {
+				canvasSekaligus.width = canvasSekaligus.width;
+				isSignedSekaligus = false;
+			}
+
+			// Set up the UI
+			var clearBtn = document.getElementById("hapus_ttd_sekaligus");
+			clearBtn.addEventListener("click", function (e) {
+				clearcanvasSekaligus();
+			}, false);
+		})();
+	</script>
+	<script>
+		$("#form_ttd_sekaligus").submit(function(e){
+			let tanggalDiterima = $('#form_ttd_sekaligus').find('input[name=tanggal_diterima]').val();
+			let namaPenerima = $('#form_ttd_sekaligus').find('select[name=nama_penerima]').val();
+			if(isSignedSekaligus){
+				if(tanggalDiterima != "" && namaPenerima != ""){
+					e.preventDefault();
+					let canvas = document.getElementById("ttd_penerima_sekaligus");
+					let dataUrl = canvas.toDataURL();
+					$.post("<?= base_url('ttd_sekaligus') ?>", {
+						tanggal_diterima: tanggalDiterima,
+						nama_penerima: namaPenerima,
+						ttd_penerima: dataUrl,
+						approve: $('#form_ttd_sekaligus').find('input[name=approve]').is(":checked")
+					},
+					function(data,status){
+						Swal.fire({
+							title: "Yeay!",
+							text: data.message,
+							icon: "success"
+						}).then(function(){
+							window.location.href = '<?= base_url() ?>';
+						});
+					});
+				} else {
+					return false;
+				}
+			} else {
+				Swal.fire({
+					title: "Ups!",
+					text: "Anda belum mengisi TTD!",
+					icon: "error"
+				});
+				return false;
+			}
+		});
 	</script>
     <?= $this->include('sweetalert'); ?>
 </body>
