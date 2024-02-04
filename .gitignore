@@ -1,5 +1,4 @@
 # My Ignore
-app/Config/App.php
 
 */config/development
 */logs/log-*.php
