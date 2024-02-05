@@ -7,35 +7,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"">
 
 	<link rel="apple-touch-icon" sizes="57x57"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-57x57.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-60x60.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-72x72.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/apple-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="76x76"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-76x76.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/apple-icon-76x76.png">
 	<link rel="apple-touch-icon" sizes="114x114"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-114x114.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/apple-icon-114x114.png">
 	<link rel="apple-touch-icon" sizes="120x120"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-120x120.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/apple-icon-120x120.png">
 	<link rel="apple-touch-icon" sizes="144x144"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-144x144.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/apple-icon-144x144.png">
 	<link rel="apple-touch-icon" sizes="152x152"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-152x152.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/apple-icon-152x152.png">
 	<link rel="apple-touch-icon" sizes="180x180"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/apple-icon-180x180.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/apple-icon-180x180.png">
 	<link rel="icon" type="image/png" sizes="192x192"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/android-icon-192x192.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/android-icon-192x192.png">
 	<link rel="icon" type="image/png" sizes="32x32"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/favicon-32x32.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="96x96"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/favicon-96x96.png">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16"
-		href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/favicon-16x16.png">
-	<link rel="manifest" href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/manifest.json">
+		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/favicon-16x16.png">
+	<link rel="manifest" href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/manifest.json">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage"
-		content="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/images/logo/ms-icon-144x144.png">
+		content="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/ms-icon-144x144.png">
 
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
@@ -47,7 +47,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css"/>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<link rel="stylesheet" href="<?= base_url() . strpos(base_url(), "localhost") ? "" : "public/" ?>/assets/css/custom.css" />
+	<link rel="stylesheet" href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/css/custom.css" />
 </head>
 
 <body>
