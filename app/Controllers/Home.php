@@ -40,6 +40,25 @@ class Home extends BaseController
         }
     }
 
+    public function data($id){
+        $penerimaanDokumenModel = new PenerimaanDokumenModel();
+        $penerimaanDokumenData = $penerimaanDokumenModel->getDataById($id);
+        if(!$penerimaanDokumenData){
+            return $this->response->setJSON([
+                'error' => true,
+                'message' => "ID penerimaan dokumen tidak ditemukan. Silakan menggunakan ID penerimaan dokumen yang lain.",
+                'data' => []
+            ]);
+        }
+        $returnData = [
+            'error' => false,
+            'message' => $penerimaanDokumenData ? "Berhasil mendapatkan 1 data pengguna." : "Data pengguna tidak ditemukan.",
+            'total_data' => $penerimaanDokumenData ? 1 : 0,
+            'data' => $penerimaanDokumenData,
+        ];
+        return $this->response->setJSON($returnData);
+    }
+
     public function edit($id){
         $penerimaanDokumenModel = new PenerimaanDokumenModel();
         $p = $this->request->getPost();
@@ -143,24 +162,5 @@ class Home extends BaseController
                 ]);
             }
         }
-    }
-
-    public function data($id){
-        $penerimaanDokumenModel = new PenerimaanDokumenModel();
-        $penerimaanDokumenData = $penerimaanDokumenModel->getDataById($id);
-        if(!$penerimaanDokumenData){
-            return $this->response->setJSON([
-                'error' => true,
-                'message' => "ID penerimaan dokumen tidak ditemukan. Silakan menggunakan ID penerimaan dokumen yang lain.",
-                'data' => []
-            ]);
-        }
-        $returnData = [
-            'error' => false,
-            'message' => $penerimaanDokumenData ? "Berhasil mendapatkan 1 data pengguna." : "Data pengguna tidak ditemukan.",
-            'total_data' => $penerimaanDokumenData ? 1 : 0,
-            'data' => $penerimaanDokumenData,
-        ];
-        return $this->response->setJSON($returnData);
     }
 }
