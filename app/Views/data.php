@@ -4,7 +4,7 @@
 <head>
 	<title>Penerimaan Dokumen - PT Pelindo Energi Logistik</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="apple-touch-icon" sizes="57x57"
 		href="<?= base_url() . strpos(base_url(), "localhost") ? "public/" : "" ?>/assets/images/logo/apple-icon-57x57.png">
@@ -55,7 +55,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="mt-5" style="text-align: right;">
-					<button class="btn btn-success fw-bold fs-15" data-bs-toggle="modal" data-bs-target="#modalTambah"><i class="fa-solid fa-plus fw-bold fs-18 me-2"></i>Tambah Penerimaan Dokumen</button>
+					<button class="btn btn-success fw-bold fs-15 mb-2" data-bs-toggle="modal" data-bs-target="#modalTambah"><i class="fa-solid fa-plus fw-bold fs-18 me-2"></i>Tambah Penerimaan Dokumen</button>
 					<button class="btn btn-success fw-bold fs-15" data-bs-toggle="modal" data-bs-target="#modalTtdSekaligus"><i class="fa-solid fa-plus fw-bold fs-18 me-2"></i>TTD Sekaligus</button>
 				</div>
 				<div class="mt-3">
@@ -64,6 +64,7 @@
 							<tr style="vertical-align: middle;">
 								<th></th>
 								<th>Nama Pengirim</th>
+								<th class="text-center">Jenis Dokumen</th>
 								<th class="text-center">Nomor Dokumen</th>
 								<th>Perihal</th>
 								<th class="text-center">Tanggal Diterima</th>
@@ -78,6 +79,7 @@
 								<tr style="vertical-align: middle;">
 									<td></td>
 									<td><?= $data['nama_pengirim'] ?></td>
+									<td class="text-center"><?= $data['jenis_dokumen'] ?></td>
 									<td class="text-center"><?= $data['nomor_dokumen'] ?></td>
 									<td><?= $data['perihal'] ?></td>
 									<td class="text-center"><?= showDate($data['tanggal_diterima']) ?></td>
@@ -131,6 +133,17 @@
 								</div>
 								<div class="invalid-feedback">
 									Nama pengirim belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
+								<label for="jensi_dokumen">Jenis Dokumen</label>
+								<input type="text" class="form-control border border-dark" name="jenis_dokumen"
+									placeholder="Masukkan jenis dokumen" required>
+								<div class="valid-feedback">
+									Jenis dokumen telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Jenis dokumen belum diisi!
 								</div>
 							</div>
 							<div class="col-md-12 mb-3">
@@ -221,6 +234,17 @@
 								</div>
 							</div>
 							<div class="col-md-12 mb-3">
+								<label for="jenis_dokumen">Jenis Dokumen</label>
+								<input type="text" class="form-control border border-dark" name="jenis_dokumen"
+									placeholder="Masukkan jenis dokumen" required>
+								<div class="valid-feedback">
+									Jenis dokumen telah diisi!
+								</div>
+								<div class="invalid-feedback">
+									Jenis dokumen belum diisi!
+								</div>
+							</div>
+							<div class="col-md-12 mb-3">
 								<label for="nomor_dokumen">Nomor Dokumen</label>
 								<input type="text" class="form-control border border-dark" name="nomor_dokumen"
 									placeholder="Masukkan nomor dokumen" required>
@@ -287,7 +311,7 @@
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="modalTtd" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalTtd"
-		aria-hidden="true">
+		aria-hidden="true" style="overflow: hidden;">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -324,7 +348,7 @@
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="modalTtdSekaligus" tabindex="-1" role="dialog" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalTtdSekaligus"
-		aria-hidden="true">
+		aria-hidden="true" style="overflow: hidden;">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -600,15 +624,17 @@
 	<script>
 		$("#form_tambah_penerimaan_dokumen").submit(function(e){
 			let namaPengirim = $('#form_tambah_penerimaan_dokumen').find('input[name=nama_pengirim]').val();
+			let jenisDokumen = $('#form_tambah_penerimaan_dokumen').find('input[name=jenis_dokumen]').val();
 			let nomorDokumen = $('#form_tambah_penerimaan_dokumen').find('input[name=nomor_dokumen]').val();
 			let perihal = $('#form_tambah_penerimaan_dokumen').find('input[name=perihal]').val();
 			let tanggalDiterima = $('#form_tambah_penerimaan_dokumen').find('input[name=tanggal_diterima]').val();
 			let namaPenerima = $('#form_tambah_penerimaan_dokumen').find('input[name=nama_penerima]').val();
 			let subdit = $('#form_tambah_penerimaan_dokumen').find('input[name=subdit]').val();
-			if(namaPengirim != "" && nomorDokumen != "" && perihal != "" && tanggalDiterima != "" && namaPenerima != "" && subdit != ""){
+			if(namaPengirim != "" && jenisDokumen != "" && nomorDokumen != "" && perihal != "" && tanggalDiterima != "" && namaPenerima != "" && subdit != ""){
 				e.preventDefault();
 				$.post("<?= base_url('tambah') ?>", {
 					nama_pengirim: namaPengirim,
+					jenis_dokumen: jenisDokumen,
 					nomor_dokumen: nomorDokumen,
 					perihal: perihal,
 					tanggal_diterima: tanggalDiterima,
@@ -637,6 +663,7 @@
 				if(status == "success"){
 					$("#form_edit_penerimaan_dokumen").attr('action', '<?= base_url('edit/') ?>' + idData);
 					$('#form_edit_penerimaan_dokumen').find('input[name=nama_pengirim]').val(data.data.nama_pengirim);
+					$('#form_edit_penerimaan_dokumen').find('input[name=jenis_dokumen]').val(data.data.jenis_dokumen);
 					$('#form_edit_penerimaan_dokumen').find('input[name=nomor_dokumen]').val(data.data.nomor_dokumen);
 					$('#form_edit_penerimaan_dokumen').find('input[name=perihal]').val(data.data.perihal);
 					$('#form_edit_penerimaan_dokumen').find('input[name=tanggal_diterima]').val(data.data.tanggal_diterima);
@@ -656,15 +683,17 @@
 
 		$("#form_edit_penerimaan_dokumen").submit(function(e){
 			let namaPengirim = $('#form_edit_penerimaan_dokumen').find('input[name=nama_pengirim]').val();
+			let jenisDokumen = $('#form_edit_penerimaan_dokumen').find('input[name=jenis_dokumen]').val();
 			let nomorDokumen = $('#form_edit_penerimaan_dokumen').find('input[name=nomor_dokumen]').val();
 			let perihal = $('#form_edit_penerimaan_dokumen').find('input[name=perihal]').val();
 			let tanggalDiterima = $('#form_edit_penerimaan_dokumen').find('input[name=tanggal_diterima]').val();
 			let namaPenerima = $('#form_edit_penerimaan_dokumen').find('input[name=nama_penerima]').val();
 			let subdit = $('#form_edit_penerimaan_dokumen').find('input[name=subdit]').val();
-			if(namaPengirim != "" && nomorDokumen != "" && perihal != "" && tanggalDiterima != "" && namaPenerima != "" && subdit != ""){
+			if(namaPengirim != "" && jenisDokumen != "" && nomorDokumen != "" && perihal != "" && tanggalDiterima != "" && namaPenerima != "" && subdit != ""){
 				e.preventDefault();
 				$.post("<?= base_url('edit/') ?>" + idData, {
 					nama_pengirim: namaPengirim,
+					jenis_dokumen: jenisDokumen,
 					nomor_dokumen: nomorDokumen,
 					perihal: perihal,
 					tanggal_diterima: tanggalDiterima,

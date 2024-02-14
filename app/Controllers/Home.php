@@ -20,6 +20,7 @@ class Home extends BaseController
             $penerimaanDokumenModel = new PenerimaanDokumenModel();
             $insertData = [
                 'nama_pengirim' => $p['nama_pengirim'],
+                'jenis_dokumen' => $p['jenis_dokumen'],
                 'nomor_dokumen' => $p['nomor_dokumen'],
                 'perihal' => $p['perihal'],
                 'tanggal_diterima' => $p['tanggal_diterima'],
@@ -65,6 +66,7 @@ class Home extends BaseController
         if($p){
             $updateData = [
                 'nama_pengirim' => $p['nama_pengirim'],
+                'jenis_dokumen' => $p['jenis_dokumen'],
                 'nomor_dokumen' => $p['nomor_dokumen'],
                 'perihal' => $p['perihal'],
                 'tanggal_diterima' => $p['tanggal_diterima'],
