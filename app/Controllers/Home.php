@@ -44,18 +44,11 @@ class Home extends BaseController
     public function data($id){
         $penerimaanDokumenModel = new PenerimaanDokumenModel();
         $penerimaanDokumenData = $penerimaanDokumenModel->getDataById($id);
-        if(!$penerimaanDokumenData){
-            return $this->response->setJSON([
-                'error' => true,
-                'message' => "ID penerimaan dokumen tidak ditemukan. Silakan menggunakan ID penerimaan dokumen yang lain.",
-                'data' => []
-            ]);
-        }
         $returnData = [
-            'error' => false,
-            'message' => $penerimaanDokumenData ? "Berhasil mendapatkan 1 data pengguna." : "Data pengguna tidak ditemukan.",
+            'error' => $penerimaanDokumenData ? false : true,
+            'message' => $penerimaanDokumenData ? "Berhasil mendapatkan 1 data penerimaan dokumen." : "ID penerimaan dokumen tidak ditemukan. Silakan menggunakan ID penerimaan dokumen yang lain.",
             'total_data' => $penerimaanDokumenData ? 1 : 0,
-            'data' => $penerimaanDokumenData,
+            'data' => $penerimaanDokumenData ? $penerimaanDokumenData : [],
         ];
         return $this->response->setJSON($returnData);
     }
@@ -93,11 +86,15 @@ class Home extends BaseController
             'dihapus_pada' => date("Y-m-d H:i:s")
         ];
         if($penerimaanDokumenModel->updateDataById($id, $updateData)){
-            session()->setFlashdata('alert', 'berhasil_hapus');
-            return redirect()->to(base_url());
+            return $this->response->setJSON([
+                'error' => false,
+                'message' => "Berhasil menghapus data penerimaan dokumen.",
+            ]);
         } else {
-            session()->setFlashdata('alert', 'gagal_coba_lagi');
-            return redirect()->to(base_url());
+            return $this->response->setJSON([
+                'error' => true,
+                'message' => "Terjadi kegagalan. Silakan coba lagi atau laporkan ke admin.",
+            ]);
         }
     }
 
@@ -133,11 +130,15 @@ class Home extends BaseController
             'diubah_pada' => date("Y-m-d H:i:s")
         ];
         if($penerimaanDokumenModel->updateDataById($id, $updateData)){
-            session()->setFlashdata('alert', 'berhasil_approve');
-            return redirect()->to(base_url());
+            return $this->response->setJSON([
+                'error' => false,
+                'message' => "Berhasil mengapprove data penerimaan dokumen.",
+            ]);
         } else {
-            session()->setFlashdata('alert', 'gagal_coba_lagi');
-            return redirect()->to(base_url());
+            return $this->response->setJSON([
+                'error' => true,
+                'message' => "Terjadi kegagalan. Silakan coba lagi atau laporkan ke admin.",
+            ]);
         }
     }
 

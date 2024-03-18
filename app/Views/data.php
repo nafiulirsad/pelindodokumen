@@ -56,7 +56,7 @@
 			<div class="col-12">
 				<div class="mt-5" style="text-align: right;">
 					<button class="btn btn-success fw-bold fs-15 mb-2" data-bs-toggle="modal" data-bs-target="#modalTambah"><i class="fa-solid fa-plus fw-bold fs-18 me-2"></i>Tambah Penerimaan Dokumen</button>
-					<button class="btn btn-success fw-bold fs-15" data-bs-toggle="modal" data-bs-target="#modalTtdSekaligus"><i class="fa-solid fa-plus fw-bold fs-18 me-2"></i>TTD Sekaligus</button>
+					<button class="btn btn-success fw-bold fs-15 mb-2" data-bs-toggle="modal" data-bs-target="#modalTtdSekaligus"><i class="fa-solid fa-plus fw-bold fs-18 me-2"></i>TTD Sekaligus</button>
 				</div>
 				<div class="mt-3">
 					<table id="penerimaanDokumenDatatable" class="table table-striped" style="width:100%">
@@ -93,14 +93,14 @@
 										<?php endif ?>
 									</td>
 									<td class="text-center">
-										<?php if($data['diapprove_pada'] == NULL && $data['ttd_penerima'] != NULL): ?>
-											<a href="<?= base_url('hapus/' . $data['id']) ?>" class="btn btn-sm btn-danger fw-bold fs-14 m-1">Hapus</a>
-											<a class="btn btn-sm btn-primary text fw-bold fs-14 m-1" onclick="editData(<?= $data['id'] ?>)">Edit</a>
-											<a href="<?= base_url('approve/' . $data['id']) ?>" class="btn btn-sm btn-success fw-bold fs-14 m-1">Approve</a>
-										<?php elseif($data['diapprove_pada'] == NULL && $data['ttd_penerima'] == NULL): ?>
-											<a href="<?= base_url('hapus/' . $data['id']) ?>" class="btn btn-sm btn-danger fw-bold fs-14 m-1">Hapus</a>
+										<?php if($data['diapprove_pada'] == NULL): ?>
+											<a class="btn btn-sm btn-danger fw-bold fs-14 m-1" onclick="hapus(<?= $data['id'] ?>)">Hapus</a>
 											<a class="btn btn-sm btn-primary fw-bold fs-14 m-1" onclick="editData(<?= $data['id'] ?>)">Edit</a>
-											<a class="btn btn-sm btn-success fw-bold fs-14 m-1" onclick="isiTtd(<?= $data['id'] ?>)">TTD</a>
+											<?php if($data['ttd_penerima'] == NULL): ?>
+												<a class="btn btn-sm btn-success fw-bold fs-14 m-1" onclick="isiTtd(<?= $data['id'] ?>)">TTD</a>
+											<?php else: ?>
+												<a class="btn btn-sm btn-success fw-bold fs-14 m-1" onclick="approve(<?= $data['id'] ?>)">Approve</a>
+											<?php endif ?>
 										<?php else: ?>
 											-
 										<?php endif ?>
@@ -476,21 +476,21 @@
 					extend: 'excelHtml5',
 					className: 'btn btn-success exportBtn me-2',
 					exportOptions: {
-						columns: [ 0, 1, 2, 3, 4 ]
+						columns: [ 1, 2, 3, 4, 5, 6, 7 ]
 					}
 				},
 				{
 					extend: 'pdfHtml5',
 					className: 'btn btn-success exportBtn me-2',
 					exportOptions: {
-						columns: [ 0, 1, 2, 3, 4 ]
+						columns: [ 1, 2, 3, 4, 5, 6, 7 ]
 					}
 				},
 				{
 					extend: 'print',
 					className: 'btn btn-success exportBtn me-2',
 					exportOptions: {
-						columns: [ 0, 1, 2, 3, 4 ]
+						columns: [ 1, 2, 3, 4, 5, 6, 7 ]
 					}
 				}
 			]
@@ -744,6 +744,48 @@
 				});
 			}
 		}
+
+		function approve(id){
+			$.get("<?= base_url('approve/') ?>" + id, function(data, status){
+				if(status == "success" && data.error == false){
+					Swal.fire({
+						icon: 'success',
+						title: 'Yeay!',
+						text: data.message,
+					}).then(function(){
+						window.location.href = '<?= base_url() ?>';
+					});
+				}
+				else{
+					Swal.fire({
+						icon: 'error',
+						title: 'Ups!',
+						text: data.message,
+					});
+				}
+			});
+		}
+
+		function hapus(id){
+			$.get("<?= base_url('hapus/') ?>" + id, function(data, status){
+				if(status == "success" && data.error == false){
+					Swal.fire({
+						icon: 'success',
+						title: 'Yeay!',
+						text: data.message,
+					}).then(function(){
+						window.location.href = '<?= base_url() ?>';
+					});
+				}
+				else{
+					Swal.fire({
+						icon: 'error',
+						title: 'Ups!',
+						text: data.message,
+					});
+				}
+			});
+		}
 	</script>
 	<script>
 		let isSignedSekaligus = false;
@@ -907,7 +949,6 @@
 			}
 		});
 	</script>
-    <?= $this->include('sweetalert'); ?>
 </body>
 
 </html>
